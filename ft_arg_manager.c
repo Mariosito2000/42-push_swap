@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:19:17 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/12 13:59:05 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:24:59 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ static int	ft_check_limits(int n, char	*str)
 	return (0);
 }
 
+/*
+Funcion que añade un numero
+
+*/
 static void	ft_add_number(char **temp, t_list **stack_a)
 {
 	int	i;

@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_sort_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 11:46:56 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/13 11:22:49 by marias-e         ###   ########.fr       */
+/*   Created: 2022/12/13 13:12:10 by marias-e          #+#    #+#             */
+/*   Updated: 2022/12/13 13:18:20 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list	**lst, t_list *new)
+void	ft_sort_2(t_list **stack_a)
 {
-	t_list	*last;
-
-	if (lst)
-	{
-		if (*lst)
-		{
-			last = ft_lstlast(*lst);
-			new->prev = last;
-			last->next = new;
-		}
-		else
-			*lst = new;
-	}
+	if ((*stack_a)->content > (*stack_a)->next->content)
+		ft_printf("sa\n");
+	ft_exit(0);
 }

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_check_order.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 11:46:56 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/13 11:22:49 by marias-e         ###   ########.fr       */
+/*   Created: 2022/12/12 14:27:08 by marias-e          #+#    #+#             */
+/*   Updated: 2022/12/12 14:38:26 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list	**lst, t_list *new)
+int	ft_check_order(t_list *stack)
 {
-	t_list	*last;
-
-	if (lst)
+	while (stack->next)
 	{
-		if (*lst)
-		{
-			last = ft_lstlast(*lst);
-			new->prev = last;
-			last->next = new;
-		}
-		else
-			*lst = new;
+		if (stack->content > stack->next->content)
+			return (1);
+		stack = stack->next;
 	}
+	return (0);
 }

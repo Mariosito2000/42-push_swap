@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 11:43:26 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/12 11:41:01 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:02:52 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,3 @@ void	ft_free_split(char **array)
 		free(array);
 	}
 }
-
-/*
-void	ft_free_int_array(int **array, int count)
-{
-	int	i;
-
-	i = 0;
-	while (i < count)
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
-*/

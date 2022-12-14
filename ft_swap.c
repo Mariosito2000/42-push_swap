@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/22 11:46:56 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/13 11:22:49 by marias-e         ###   ########.fr       */
+/*   Created: 2022/12/12 14:16:29 by marias-e          #+#    #+#             */
+/*   Updated: 2022/12/12 15:09:09 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list	**lst, t_list *new)
+void	ft_swap(t_list *stack)
 {
-	t_list	*last;
+	int	aux;
 
-	if (lst)
-	{
-		if (*lst)
-		{
-			last = ft_lstlast(*lst);
-			new->prev = last;
-			last->next = new;
-		}
-		else
-			*lst = new;
-	}
+	aux = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = aux;
+}
+
+void	ft_double_swap(t_list *stack_a, t_list *stack_b)
+{
+	ft_swap(stack_a);
+	ft_swap(stack_b);
 }
