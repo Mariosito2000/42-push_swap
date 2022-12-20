@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:19:17 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/13 12:24:59 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:48:32 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,6 @@ static int	ft_check_limits(int n, char	*str)
 	return (0);
 }
 
-/*
-Funcion que añade un numero
-
-*/
 static void	ft_add_number(char **temp, t_list **stack_a)
 {
 	int	i;
@@ -81,6 +77,15 @@ static void	ft_check_doubled(t_list *stack_a)
 	}
 }
 
+/*
+* Function that manages the program arguments and transform then from
+* characters to int, checking in the process if they are all numbers.
+*
+* Parameters:
+* argv  -  array of arguments given to the program
+* argc  -  number of arguments given to the program
+* stack_a  -  list of int thats going to save all the numbers
+*/
 void	ft_arg_manager(char **argv, int argc, t_list **stack_a)
 {
 	int		i;

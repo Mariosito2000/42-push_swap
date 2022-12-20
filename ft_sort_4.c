@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:12:24 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/14 17:27:02 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:21:43 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,9 @@ static void	ft_big_d(int a, int b, int c)
 	ft_exit(0);
 }
 
+/*
+* Sorts a list of 4 numbers.
+*/
 void	ft_sort_4(t_list **stack_a)
 {
 	int	a;

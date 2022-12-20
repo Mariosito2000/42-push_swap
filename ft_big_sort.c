@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_array.c                                    :+:      :+:    :+:   */
+/*   ft_big_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 11:43:26 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/16 15:28:04 by marias-e         ###   ########.fr       */
+/*   Created: 2022/12/16 16:27:47 by marias-e          #+#    #+#             */
+/*   Updated: 2022/12/20 12:52:35 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 /*
-* Function that frees an array allocated memory.
-*
-* Parameters:
-* array  -  Array being freed.
-*/
-void	ft_free_split(char **array)
+void	ft_big_sort(t_list **stack_a)
 {
-	int	i;
+	t_list	*merge_mov;
 
-	if (array)
-	{
-		i = 0;
-		while (array[i])
-		{
-			free(array[i]);
-			i++;
-		}
-		free(array);
-	}
+	merge_mov = 0;
+	ft_merge_sort(stack_a, *merge_mov);
 }
+*/

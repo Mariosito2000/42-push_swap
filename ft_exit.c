@@ -6,15 +6,20 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:19:57 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/14 17:34:57 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:26:30 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* 
-Exit function
-@param reason exit reason
+* Exit function.
+*
+*	0 - clean exit
+*	1 - error exit
+*
+* Parameters:
+* reason  -  Exit reason.
 */
 void	ft_exit(int reason)
 {
