@@ -6,14 +6,14 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:56:02 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/16 16:45:34 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:30:16 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-* Function that selects the sorting method according to the list size.
+* Selects the sorting method according to the list size.
 *
 * Parameters:
 * size  -  number of nodes of the list
@@ -27,8 +27,6 @@ void	ft_sort_selector(int size, t_list **stack_a)
 		ft_sort_3(stack_a);
 	else if (size == 4)
 		ft_sort_4(stack_a);
-/*
-	else if (size > 4)
-		ft_big_sort(stack_a);
-*/
+	else
+		ft_big_sort(stack_a, size);
 }

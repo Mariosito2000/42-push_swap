@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 13:08:57 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 12:33:32 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:29:31 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstnew(int content)
 
 	node = malloc(sizeof(t_list));
 	if (!node)
-		return (0);
+		exit(0);
 	node->content = content;
 	node->next = 0;
 	node->prev = 0;

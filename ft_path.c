@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_order.c                                   :+:      :+:    :+:   */
+/*   ft_path.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 14:27:08 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/09 13:22:07 by marias-e         ###   ########.fr       */
+/*   Created: 2023/01/09 12:43:53 by marias-e          #+#    #+#             */
+/*   Updated: 2023/01/11 17:02:05 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-* Checks if a list is sorted in a decreasing order.
-*
-* Parameters:
-* stack  -  list of int checked.
-*
-* Return values:
-* 0 - list is SORTED
-* 1 - list is NOT SORTED
-*/
-int	ft_check_order(t_list *stack)
+int	ft_path(t_list **stack_a, size_t group)
 {
-	while (stack->next)
+	int		dist;
+	int		rdist;
+	t_list	*iter;
+
+	iter = *stack_a;
+	dist = 0;
+	rdist = 1;
+	while (iter->group != group && iter->next)
 	{
-		if (stack->content > stack->next->content)
-			return (1);
-		stack = stack->next;
+		dist++;
+		iter = iter->next;
 	}
-	return (0);
+	iter = ft_lstlast(*stack_a);
+	while (iter->group != group && iter->prev)
+	{
+		rdist++;
+		iter = iter->prev;
+	}
+	if (dist <= rdist)
+		return (dist);
+	else
+		return (-rdist);
 }

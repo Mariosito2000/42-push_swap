@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 13:01:16 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/16 13:06:42 by marias-e         ###   ########.fr       */
+/*   Updated: 2022/12/20 17:34:55 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ void	ft_check_sa(t_list **iter)
 		if (comp->content == sb)
 		{
 			(*iter)->content = ss;
-			if (comp->next)
-				comp->next->prev = comp->prev;
-			comp->prev->next = comp->next;
-			free(comp);
+			comp->content = 0;
 			return ;
 		}
 		comp = comp->next;
@@ -44,10 +41,7 @@ void	ft_check_sb(t_list **iter)
 		if (comp->content == sa)
 		{
 			(*iter)->content = ss;
-			if (comp->next)
-				comp->next->prev = comp->prev;
-			comp->prev->next = comp->next;
-			free(comp);
+			comp->content = 0;
 			return ;
 		}
 		comp = comp->next;

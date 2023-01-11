@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:19:57 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/16 15:26:30 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/09 12:45:01 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_exit(int reason)
 		exit(0);
 	else if (reason == 1)
 	{
-		ft_printf("Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 		exit(0);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:01:24 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 12:59:39 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:45:04 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 	size_t			index;
+	size_t			group;
 }					t_list;
 
 void				*ft_memset(void *b, int c, size_t n);

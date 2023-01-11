@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:07:17 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 13:13:57 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:10:10 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_rotate(t_list **stack)
 	aux = *stack;
 	ft_lstadd_back(stack, ft_lstnew((*stack)->content));
 	ft_lstlast(*stack)->index = aux->index;
+	ft_lstlast(*stack)->group = aux->group;
 	*stack = (*stack)->next;
 	(*stack)->prev = 0;
 	free(aux);
@@ -45,6 +46,7 @@ void	ft_rev_rotate(t_list **stack)
 	aux = ft_lstlast(*stack);
 	ft_lstadd_front(stack, ft_lstnew(aux->content));
 	(*stack)->index = aux->index;
+	(*stack)->group = aux->group;
 	aux->prev->next = 0;
 	free(aux);
 }
