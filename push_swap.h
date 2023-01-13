@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/11 12:29:57 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:08:42 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void		ft_sort_3(t_list **stack_a);
 void		ft_sort_4(t_list **stack_a);
 
 void		ft_big_sort(t_list **stack_a, int size);
+void		ft_groups(t_list **stack_a, int size);
+int			ft_path(t_list **stack_a, size_t group);
 
 void		ft_optimize_counter(t_list **movements);
 void		ft_counter_pa(t_list **iter);

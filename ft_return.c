@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_merge_sort.c                                    :+:      :+:    :+:   */
+/*   ft_return.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 11:29:27 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 16:19:35 by marias-e         ###   ########.fr       */
+/*   Created: 2023/01/13 13:28:59 by marias-e          #+#    #+#             */
+/*   Updated: 2023/01/13 14:03:40 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-void	ft_arbitrary_sort(t_list *stack_a, t_list **merge_mov)
-{
-	t_list	stack_b;
 
+void	ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
+			size_t current)
+{
 	
 }
-*/

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:19:17 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/16 15:48:32 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:20:46 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static void	ft_check_chr(char *str)
 {
 	int	i;
 
-	if ((str[0] == '-' && (str[1] == 0 || str[1] == '0')) || \
-		(str[0] == '0' && str[1]))
+	if ((str[0] == '-' && str[1] == '0'))
 		ft_exit(1);
 	i = 0;
 	if (str[i] == '-')

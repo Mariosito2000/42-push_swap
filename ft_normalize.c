@@ -6,22 +6,22 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:34:16 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 13:38:29 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:18:16 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_index(int num, t_list *stack_a)
+static size_t	ft_index(int num, t_list *stat)
 {
 	size_t	index;
 
 	index = 1;
-	while (stack_a)
+	while (stat)
 	{
-		if (stack_a->content < num)
+		if (stat->content < num)
 			index++;
-		stack_a = stack_a->next;
+		stat = stat->next;
 	}
 	return (index);
 }
@@ -29,11 +29,13 @@ static size_t	ft_index(int num, t_list *stack_a)
 void	ft_normalize(t_list	**stack_a)
 {
 	t_list	*iter;
+	t_list	*stat;
 
 	iter = (*stack_a);
 	while (iter)
 	{
-		iter->index = ft_index(iter->content, *stack_a);
+		stat = (*stack_a);
+		iter->index = ft_index(iter->content, stat);
 		iter = iter->next;
 	}
 }
