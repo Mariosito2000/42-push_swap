@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:43:53 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/11 17:02:05 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:24:01 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,15 @@ int	ft_path(t_list **stack_a, size_t group)
 		return (dist);
 	else
 		return (-rdist);
+}
+
+int	ft_absolute_moves(int moves, int moves_big)
+{
+	if (moves < 0)
+		moves = moves * -1;
+	if (moves_big < 0)
+		moves_big = moves_big * -1;
+	if (moves > moves_big)
+		return (1);
+	return (0);
 }

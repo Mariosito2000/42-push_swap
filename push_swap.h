@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/13 14:08:42 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 12:42:00 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ enum	e_movements
 	rrb = 10,
 	rrr = 11
 };
+//borrar
+void		ft_print_lista(t_list **stack);
 
 void		ft_exit(int reason);
 
@@ -48,7 +50,7 @@ void		ft_normalize(t_list	**stack_a);
 int			ft_check_order(t_list *stack);
 
 void		ft_push(t_list **source, t_list **dest);
-void		ft_swap(t_list *list);
+void		ft_swap(t_list **list);
 void		ft_rotate(t_list **stack);
 void		ft_rev_rotate(t_list **stack);
 
@@ -59,8 +61,14 @@ void		ft_sort_3(t_list **stack_a);
 void		ft_sort_4(t_list **stack_a);
 
 void		ft_big_sort(t_list **stack_a, int size);
-void		ft_groups(t_list **stack_a, int size);
+void		ft_groups(t_list **stack_a, float size);
 int			ft_path(t_list **stack_a, size_t group);
+int			ft_absolute_moves(int moves, int moves_big);
+void		ft_rotator_a(t_list **stack_a, t_list **mov, int moves);
+void		ft_sorty(t_list **stack_a, t_list **mov);
+void		ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
+				size_t current);
+void		ft_manage_orders(t_list **mov);
 
 void		ft_optimize_counter(t_list **movements);
 void		ft_counter_pa(t_list **iter);

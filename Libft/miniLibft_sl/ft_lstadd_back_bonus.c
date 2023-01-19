@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:46:56 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/13 11:22:49 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:27:40 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ void	ft_lstadd_back(t_list	**lst, t_list *new)
 		if (*lst)
 		{
 			last = ft_lstlast(*lst);
+			new->next = 0;
 			new->prev = last;
 			last->next = new;
 		}
 		else
+		{
 			*lst = new;
+			new->next = 0;
+			new->prev = 0;
+		}
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:27:47 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/13 15:54:04 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:33:24 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_rotator(t_list **stack_a, t_list **mov, int moves)
+void	ft_rotator_a(t_list **stack_a, t_list **mov, int moves)
 {
 	if (moves < 0)
 	{
@@ -43,12 +43,13 @@ static void	ft_push_phase(t_list **stack_a, t_list **stack_b, t_list **mov,
 
 	moves = ft_path(stack_a, current);
 	moves_big = ft_path(stack_a, current + 1);
-	if (moves > moves_big)
+	if (ft_absolute_moves(moves, moves_big))
 		moves = moves_big;
-	ft_rotator(stack_a, mov, moves);
-	ft_push(stack_a, &stack_b);
+	ft_rotator_a(stack_a, mov, moves);
+	ft_push(stack_a, stack_b);
 	ft_lstadd_back(mov, ft_lstnew(pb));
-	if ((*stack_b)->group == current && (*stack_b)->next->group != current)
+	if ((*stack_b)->next && (*stack_b)->group == (size_t)
+		current && (*stack_b)->next->group != (size_t)current)
 	{
 		ft_rotate(stack_b);
 		ft_lstadd_back(mov, ft_lstnew(rb));
@@ -60,11 +61,11 @@ static int	ft_check_groups(t_list **stack_a, size_t current)
 	t_list	*iter;
 
 	iter = *stack_a;
-	while (iter->next)
+	while (iter)
 	{
 		if (iter->group == current || iter->group == current + 1)
 			return (0);
-		iter->next;
+		iter = iter->next;
 	}
 	return (1);
 }
@@ -73,7 +74,7 @@ static void	ft_last_push(t_list **stack_a, t_list **stack_b, t_list **mov)
 {
 	int	left;
 
-	left = ft_lstsize(stack_a);
+	left = ft_lstsize(*stack_a);
 	while (left > 3)
 	{
 		ft_push(stack_a, stack_b);
@@ -96,8 +97,8 @@ void	ft_big_sort(t_list **stack_a, int size)
 		groups = 3;
 	else
 		groups = 7;
-	ft_groups(stack_a, size / groups);
-	while (current < groups - 1)
+	ft_groups(stack_a, (float)size / (float)groups);
+	while (current < groups - 1 && ft_lstsize(*stack_a) > 3)
 	{
 		ft_push_phase(stack_a, &stack_b, &mov, current);
 		if (ft_check_groups(stack_a, current))
@@ -105,6 +106,16 @@ void	ft_big_sort(t_list **stack_a, int size)
 	}
 	ft_last_push(stack_a, &stack_b, &mov);
 	ft_sorty(stack_a, &mov);
-	ft_return(stack_a, &stack_b, &mov, current);
+	ft_printf("A\n");
+	ft_print_lista(stack_a);
+	ft_printf("B\n");
+	ft_print_lista(&stack_b);
+	ft_return(stack_a, &stack_b, &mov, groups - 1); //arreglar 
+							//(Números mayores a los tres ordenados en A)
 	ft_manage_orders(&mov);
+	ft_printf("A\n");
+	ft_print_lista(stack_a);
+	ft_printf("B\n");
+	ft_print_lista(&stack_b);
+	ft_exit(0);
 }

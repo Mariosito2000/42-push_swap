@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:19:17 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/13 17:20:46 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:59:58 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ static void	ft_add_number(char **temp, t_list **stack_a)
 			*stack_a = ft_lstnew(ft_atoi(temp[i]));
 		else
 			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(temp[i])));
-		ft_check_limits(ft_lstlast(*stack_a)->content, temp[i]);
+		if (ft_check_limits(ft_lstlast(*stack_a)->content, temp[i]))
+			ft_exit(1);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:16:29 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/11 12:37:21 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:07:44 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,19 @@
 * Parameters:
 * stack - list of int to be swapped.
 */
-void	ft_swap(t_list *stack)
+void	ft_swap(t_list **stack)
 {
-	int		aux;
-	size_t	index;
-	size_t	group;
+	t_list	*aux;
 
-	if (stack->next)
+	if ((*stack)->next)
 	{
-		aux = stack->content;
-		stack->content = stack->next->content;
-		stack->next->content = aux;
-		index = stack->index;
-		stack->index = stack->next->index;
-		stack->next->index = index;
-		group = stack->group;
-		stack->group = stack->next->group;
-		stack->next->group = group;
+		aux = *stack;
+		*stack = (*stack)->next;
+		(*stack)->prev = 0;
+		aux->next = (*stack)->next;
+		aux->prev = (*stack);
+		(*stack)->next = aux;
+		if (aux->next)
+			aux->next->prev = aux;
 	}
 }

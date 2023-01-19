@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:34:16 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/13 16:18:16 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:58:29 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static size_t	ft_index(int num, t_list *stat)
 {
 	size_t	index;
 
-	index = 1;
+	index = 0;
 	while (stat)
 	{
 		if (stat->content < num)

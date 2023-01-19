@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:52 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/11 11:11:17 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:55:08 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,25 @@ void	ft_push(t_list **source, t_list **dest)
 {
 	t_list	*aux;
 
-	aux = *source;
 	if (!*dest)
 	{
-		*dest = ft_lstnew((*source)->content);
-		(*dest)->index = (*source)->index;
-		(*dest)->group = (*source)->group;
+		*dest = *source;
+		*source = (*source)->next;
+		(*dest)->next = 0;
 	}
 	else
 	{
-		ft_lstadd_front(dest, ft_lstnew((*source)->content));
-		(*dest)->index = (*source)->index;
-		(*dest)->group = (*source)->group;
+		aux = *source;
+		if ((*source)->next)
+		{
+			*source = (*source)->next;
+			ft_lstadd_front(dest, (*source)->prev);
+			(*source)->prev = 0;
+		}
+		else
+		{
+			ft_lstadd_front(dest, *source);
+			*source = 0;
+		}
 	}
-	if ((*source)->next)
-	{
-		*source = (*source)->next;
-		(*source)->prev = 0;
-	}
-	free(aux);
 }
