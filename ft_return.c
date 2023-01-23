@@ -6,11 +6,35 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:28:59 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 12:20:49 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:46:42 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	ft_fastest_path(t_list **stack_a, size_t index)
+{
+	int		n;
+	int		r;
+
+	n = 1;
+	r = 1;
+	if ((*stack_a)->index > index && ft_lstlast(*stack_a)->index < index)
+		return (0);
+	if (ft_min_max(stack_a, index))
+		return (ft_path_mm(stack_a));
+	return (ft_general_path(stack_a, index));
+}
+
+static void	ft_fit(t_list **stack_a, t_list **stack_b, t_list **mov)
+{
+	int	path;
+
+	path = ft_fastest_path(stack_a, (*stack_b)->index);
+	ft_rotator_a(stack_a, mov, path);
+	ft_push(stack_b, stack_a);
+	ft_lstadd_back(mov, ft_lstnew(pa));
+}
 
 static int	ft_check_groups(t_list **stack_b, size_t current)
 {
@@ -19,7 +43,6 @@ static int	ft_check_groups(t_list **stack_b, size_t current)
 	iter = *stack_b;
 	while (iter)
 	{
-		ft_printf("GROUP\n");
 		if (iter->group >= current)
 			return (0);
 		iter = iter->next;
@@ -27,25 +50,30 @@ static int	ft_check_groups(t_list **stack_b, size_t current)
 	return (1);
 }
 
-static void	ft_fit(t_list **stack_a, t_list **stack_b, t_list **mov)
+static void	ft_fix_order(t_list **stack_a, t_list **mov)
 {
-	int	n;
+	int		n;
+	int		r;
+	t_list	*iter;
 
-	n = 0;
-	while ((*stack_b)->index > (*stack_a)->index)
+	n = 1;
+	r = 1;
+	iter = (*stack_a);
+	while (iter->index < iter->next->index)
 	{
-		ft_rotate(stack_a);
-		ft_lstadd_back(mov, ft_lstnew(ra));
 		n++;
+		iter = iter->next;
 	}
-	ft_push(stack_b, stack_a);
-	ft_lstadd_back(mov, ft_lstnew(pa));
-	while (n)
+	iter = ft_lstlast(*stack_a);
+	while (iter->index > iter->prev->index)
 	{
-		ft_rev_rotate(stack_a);
-		ft_lstadd_back(mov, ft_lstnew(rra));
-		n--;
+		r++;
+		iter = iter->prev;
 	}
+	if (n > r)
+		ft_rotator_a(stack_a, mov, -r);
+	else
+		ft_rotator_a(stack_a, mov, n);
 }
 
 void	ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
@@ -53,21 +81,14 @@ void	ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
 {
 	while (*stack_b)
 	{
-		printf("current = %zu\n", current);
-		ft_printf("A\n");
-		ft_print_lista(stack_a);
-		ft_printf("B\n");
-		ft_print_lista(stack_b);
 		if (current != (*stack_b)->group && ft_lstsize(*stack_b) > 2)
 		{
-			ft_printf("SIZE\n");
 			ft_rev_rotate(stack_b);
 			ft_lstadd_back(mov, ft_lstnew(rrb));
 		}
 		ft_fit(stack_a, stack_b, mov);
-		ft_printf("X\n");
 		if (ft_check_groups(stack_b, current))
 			current--;
 	}
-	ft_printf("Z\n");
+	ft_fix_order(stack_a, mov);
 }

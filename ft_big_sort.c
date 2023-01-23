@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 16:27:47 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 17:33:24 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:03:50 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,7 @@ void	ft_big_sort(t_list **stack_a, int size)
 	}
 	ft_last_push(stack_a, &stack_b, &mov);
 	ft_sorty(stack_a, &mov);
-	ft_printf("A\n");
-	ft_print_lista(stack_a);
-	ft_printf("B\n");
-	ft_print_lista(&stack_b);
-	ft_return(stack_a, &stack_b, &mov, groups - 1); //arreglar 
-							//(Números mayores a los tres ordenados en A)
+	ft_return(stack_a, &stack_b, &mov, groups - 1);
 	ft_manage_orders(&mov);
-	ft_printf("A\n");
-	ft_print_lista(stack_a);
-	ft_printf("B\n");
-	ft_print_lista(&stack_b);
 	ft_exit(0);
 }

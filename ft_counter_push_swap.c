@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:43:10 by marias-e          #+#    #+#             */
-/*   Updated: 2022/12/20 17:37:34 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:08:45 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	ft_counter_pa(t_list **iter)
 {
 	t_list	*comp;
 
-	comp = (*iter)->next;
-	while (comp && (comp->content == pb || comp->content == pa))
+	comp = (*iter)->prev;
+	while (comp && (comp->content == pb || comp->content == pa || comp
+			->content == 0))
 	{
 		if (comp->content == pb)
 		{
@@ -25,7 +26,7 @@ void	ft_counter_pa(t_list **iter)
 			(*iter)->content = 0;
 			return ;
 		}
-		comp = comp->next;
+		comp = comp->prev;
 	}
 }
 
@@ -33,8 +34,9 @@ void	ft_counter_pb(t_list **iter)
 {
 	t_list	*comp;
 
-	comp = (*iter)->next;
-	while (comp && (comp->content == pb || comp->content == pa))
+	comp = (*iter)->prev;
+	while (comp && (comp->content == pb || comp->content == pa || comp
+			->content == 0))
 	{
 		if (comp->content == pa)
 		{
@@ -42,7 +44,7 @@ void	ft_counter_pb(t_list **iter)
 			(*iter)->content = 0;
 			return ;
 		}
-		comp = comp->next;
+		comp = comp->prev;
 	}
 }
 
@@ -50,9 +52,9 @@ void	ft_counter_sa(t_list **iter)
 {
 	t_list	*comp;
 
-	comp = (*iter)->next;
+	comp = (*iter)->prev;
 	while (comp && (comp->content == rb || comp->content == rrb
-			|| comp->content == sb))
+			|| comp->content == sb || comp->content == 0))
 	{
 		if (comp->content == sa)
 		{
@@ -60,7 +62,7 @@ void	ft_counter_sa(t_list **iter)
 			(*iter)->content = 0;
 			return ;
 		}
-		comp = comp->next;
+		comp = comp->prev;
 	}
 }
 
@@ -68,9 +70,9 @@ void	ft_counter_sb(t_list **iter)
 {
 	t_list	*comp;
 
-	comp = (*iter)->next;
+	comp = (*iter)->prev;
 	while (comp && (comp->content == ra || comp->content == rra
-			|| comp->content == sa))
+			|| comp->content == sa || comp->content == 0))
 	{
 		if (comp->content == sb)
 		{
@@ -78,6 +80,6 @@ void	ft_counter_sb(t_list **iter)
 			(*iter)->content = 0;
 			return ;
 		}
-		comp = comp->next;
+		comp = comp->prev;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 12:42:00 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:02:12 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void		ft_rotator_a(t_list **stack_a, t_list **mov, int moves);
 void		ft_sorty(t_list **stack_a, t_list **mov);
 void		ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
 				size_t current);
+int			ft_general_path(t_list **stack_a, size_t index);
+int			ft_min_max(t_list **stack_a, size_t index);
+int			ft_path_mm(t_list **stack_a);
 void		ft_manage_orders(t_list **mov);
 
 void		ft_optimize_counter(t_list **movements);
