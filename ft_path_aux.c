@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 15:51:56 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/23 17:38:15 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:52:50 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_path_mm(t_list **stack_a)
 	n = 2;
 	r = 1;
 	iter = (*stack_a)->next;
-	if (iter->index < ft_lstlast(iter)->index)
+	if ((*stack_a)->index < ft_lstlast(iter)->index)
 		return (0);
 	while (iter->next && iter->index < iter->next->index)
 	{

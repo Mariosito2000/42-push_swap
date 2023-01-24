@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:28:59 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/23 17:46:42 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:46:25 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	ft_fix_order(t_list **stack_a, t_list **mov)
 	n = 1;
 	r = 1;
 	iter = (*stack_a);
+	if (!ft_check_order(*stack_a))
+		return ;
 	while (iter->index < iter->next->index)
 	{
 		n++;
