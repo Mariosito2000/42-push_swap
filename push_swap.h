@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/23 17:02:12 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:20:04 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ enum	e_movements
 	rrb = 10,
 	rrr = 11
 };
-//borrar
-void		ft_print_lista(t_list **stack);
 
 void		ft_exit(int reason);
 
@@ -63,11 +61,19 @@ void		ft_sort_4(t_list **stack_a);
 void		ft_big_sort(t_list **stack_a, int size);
 void		ft_groups(t_list **stack_a, float size);
 int			ft_path(t_list **stack_a, size_t group);
+
 int			ft_absolute_moves(int moves, int moves_big);
 void		ft_rotator_a(t_list **stack_a, t_list **mov, int moves);
+void		ft_rotator_b(t_list **stack_b, t_list **mov, int moves);
 void		ft_sorty(t_list **stack_a, t_list **mov);
 void		ft_return(t_list **stack_a, t_list **stack_b, t_list **mov,
 				size_t current);
+int			ft_fastest_path(t_list **stack_a, size_t index);
+int			ft_fastest_path_b(t_list **stack_b, size_t index, size_t last);
+
+void		ft_fit(t_list **stack_a, t_list **stack_b, t_list **mov,
+				size_t current);
+
 int			ft_general_path(t_list **stack_a, size_t index);
 int			ft_min_max(t_list **stack_a, size_t index);
 int			ft_path_mm(t_list **stack_a);
