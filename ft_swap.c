@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:16:29 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 17:07:44 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/10 13:42:49 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_swap(t_list **stack)
 {
 	t_list	*aux;
 
-	if ((*stack)->next)
+	if (stack && ft_lstsize(*stack) > 1)
 	{
 		aux = *stack;
 		*stack = (*stack)->next;
@@ -33,4 +33,10 @@ void	ft_swap(t_list **stack)
 		if (aux->next)
 			aux->next->prev = aux;
 	}
+}
+
+void	ft_swap_both(t_list **stack_a, t_list **stack_b)
+{
+	ft_swap(stack_a);
+	ft_swap(stack_b);
 }

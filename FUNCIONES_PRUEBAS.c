@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   FUNCIONES_PRUEBAS.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 12:21:25 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/10 12:50:22 by marias-e         ###   ########.fr       */
+/*   Created: 2023/01/17 11:52:21 by marias-e          #+#    #+#             */
+/*   Updated: 2023/02/08 11:23:58 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_print_lista(t_list **stack)
 {
-	size_t	i;
+	t_list	*iter;
 
-	i = 0;
-	while ((s1[i] != 0 || s2[i] != 0) && i < n)
+	iter = *stack;
+	while (iter)
 	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		printf("I = %zu | G = %zu | N = %d\n", iter->index,
+			iter->group, iter->content);
+		iter = iter->next;
 	}
-	return (0);
 }

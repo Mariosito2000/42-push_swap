@@ -6,24 +6,17 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:52 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 11:55:08 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:03:35 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-* Moves the first int of the SOURCE list to the front of the DEST list.
-*
-* Parameters:
-* source  -  list of int that contains the number to be moved
-* dest  -  list thats receiving the number
-*/
-void	ft_push(t_list **source, t_list **dest)
+static void	ft_push_aux(t_list **source, t_list **dest)
 {
 	t_list	*aux;
 
-	if (!*dest)
+	if (!*dest && *source)
 	{
 		*dest = *source;
 		*source = (*source)->next;
@@ -44,4 +37,17 @@ void	ft_push(t_list **source, t_list **dest)
 			*source = 0;
 		}
 	}
+}
+
+/*
+* Moves the first int of the SOURCE list to the front of the DEST list.
+*
+* Parameters:
+* source  -  list of int that contains the number to be moved
+* dest  -  list thats receiving the number
+*/
+void	ft_push(t_list **source, t_list **dest)
+{
+	if (source && *source)
+		ft_push_aux(source, dest);
 }

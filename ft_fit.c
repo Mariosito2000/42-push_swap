@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:17:50 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/08 17:15:51 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:51:28 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,34 @@ static void	ft_move(t_list **stack_a, t_list **stack_b, t_list **mov,
 	ft_lstadd_back(mov, ft_lstnew(pa));
 }
 
+static void	ft_fit_aux(int *move, t_list **stack_a, t_list **stack_b,
+				t_list *iter)
+{
+	move[0] = ft_top(stack_b, iter->index);
+	if (move[0] < 0)
+	{
+		move[0] = move[0] * -1;
+		move[2] = -1;
+	}
+	else
+		move[2] = 1;
+	move[4] = ft_fastest_path(stack_a, iter->index);
+	if (move[4] < 0)
+	{
+		move[4] = move[4] * -1;
+		move[6] = -1;
+	}
+	else
+		move[6] = 1;
+	if (move[1] == -1 || (move[1] + move[5]) > (move[0] + move[4]))
+	{
+		move[1] = move[0];
+		move[3] = move[2];
+		move[5] = move[4];
+		move[7] = move[6];
+	}
+}
+
 /*
 move[0] - Mov en B de iter
 move[1] - Mov en B del mejor
@@ -64,36 +92,11 @@ void	ft_fit(t_list **stack_a, t_list **stack_b, t_list **mov,
 	int		move[8];
 
 	move[1] = -1;
-	move[5] = -1;
 	iter = *stack_b;
 	while (iter)
 	{
 		if (iter->group == current)
-		{
-			move[0] = ft_top(stack_b, iter->index);
-			if (move[0] < 0)
-			{
-				move[0] = move[0] * -1;
-				move[2] = -1;
-			}
-			else
-				move[2] = 1;
-			move[4] = ft_fastest_path(stack_a, iter->index);
-			if (move[4] < 0)
-			{
-				move[4] = move[4] * -1;
-				move[6] = -1;
-			}
-			else
-				move[6] = 1;
-			if (move[1] == -1 || (move[1] + move[5]) > (move[0] + move[4]))
-			{
-				move[1] = move[0];
-				move[3] = move[2];
-				move[5] = move[4];
-				move[7] = move[6];
-			}
-		}
+			ft_fit_aux(move, stack_a, stack_b, iter);
 		iter = iter->next;
 	}
 	ft_move(stack_a, stack_b, mov, move);

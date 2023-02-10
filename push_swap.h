@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/08 17:20:04 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:41:00 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ enum	e_movements
 	rrr = 11
 };
 
+void		ft_print_lista(t_list **stack);
+
 void		ft_exit(int reason);
 
-void		ft_free_split(char	**array);
+void		ft_free_split(char **array);
 void		ft_arg_manager(char **argv, int argc, t_list **stack_a);
 
 void		ft_normalize(t_list	**stack_a);
@@ -49,8 +51,11 @@ int			ft_check_order(t_list *stack);
 
 void		ft_push(t_list **source, t_list **dest);
 void		ft_swap(t_list **list);
+void		ft_swap_both(t_list **stack_a, t_list **stack_b);
 void		ft_rotate(t_list **stack);
+void		ft_rotate_both(t_list **stack_a, t_list **stack_b);
 void		ft_rev_rotate(t_list **stack);
+void		ft_rev_rotate_both(t_list **stack_a, t_list **stack_b);
 
 void		ft_sort_selector(int size, t_list **stack_a);
 
