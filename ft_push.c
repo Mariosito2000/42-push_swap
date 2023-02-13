@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:38:52 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/10 14:03:35 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:55:24 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_push_aux(t_list **source, t_list **dest)
 {
 	t_list	*aux;
 
-	if (!*dest && *source)
+	if (!*dest)
 	{
 		*dest = *source;
 		*source = (*source)->next;

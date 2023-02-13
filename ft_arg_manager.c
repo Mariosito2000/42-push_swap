@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:19:17 by marias-e          #+#    #+#             */
-/*   Updated: 2023/01/19 16:59:58 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:40:05 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	ft_arg_manager(char **argv, int argc, t_list **stack_a)
 		if (!temp || !temp[0])
 			ft_exit(1);
 		ft_add_number(temp, stack_a);
+		ft_free_split(temp);
 		i++;
 	}
 	ft_check_doubled(*stack_a);

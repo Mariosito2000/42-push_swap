@@ -6,13 +6,14 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 10:52:56 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/10 12:53:04 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:02:58 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_execute_order(char *buffer, t_list **stack_a, t_list **stack_b)
+static void	ft_execute_order(char *buffer, t_list **stack_a, t_list **stack_b,
+		int *error)
 {
 	if (!ft_strncmp(buffer, "sa\n", 3))
 		ft_swap(stack_a);
@@ -37,25 +38,29 @@ static void	ft_execute_order(char *buffer, t_list **stack_a, t_list **stack_b)
 	else if (!ft_strncmp(buffer, "rrr\n", 5))
 		ft_rev_rotate_both(stack_a, stack_b);
 	else
-		ft_exit(1);
+		*error = 1;
 }
 
 void	ft_receive_orders(t_list **stack_a)
 {
 	t_list	*stack_b;
 	char	*buffer;
+	int		error;
 
+	error = 0;
 	stack_b = 0;
 	buffer = get_next_line(0);
 	while (buffer)
 	{
-		ft_execute_order(buffer, stack_a, &stack_b);
+		ft_execute_order(buffer, stack_a, &stack_b, &error);
 		buffer = get_next_line(0);
 	}
-	if (!ft_lstsize(stack_b) && !ft_check_order(*stack_a))
-		write(1, "OK", 2);
+	if (!ft_lstsize(stack_b) && !ft_check_order(*stack_a) && !error)
+		ft_printf("OK\n");
+	else if (error)
+		ft_exit(1);
 	else
-		write(1, "KO", 2);
+		ft_printf("KO\n");
 	ft_exit(0);
 }
 
@@ -67,8 +72,6 @@ int	main(int argc, char **argv)
 		ft_exit(0);
 	stack_a = 0;
 	ft_arg_manager(argv, argc, &stack_a);
-	printf("A\n");
-	ft_print_lista(&stack_a);
 	ft_receive_orders(&stack_a);
 	ft_exit(0);
 }

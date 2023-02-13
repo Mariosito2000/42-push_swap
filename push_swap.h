@@ -6,7 +6,7 @@
 /*   By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:13:54 by marias-e          #+#    #+#             */
-/*   Updated: 2023/02/10 12:41:00 by marias-e         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:32:13 by marias-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ enum	e_movements
 	rrb = 10,
 	rrr = 11
 };
-
-void		ft_print_lista(t_list **stack);
 
 void		ft_exit(int reason);
 

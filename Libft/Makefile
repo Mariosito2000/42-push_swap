@@ -6,7 +6,7 @@
 #    By: marias-e <marias-e@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 10:17:43 by marias-e          #+#    #+#              #
-#    Updated: 2022/12/01 11:42:54 by marias-e         ###   ########.fr        #
+#    Updated: 2023/02/13 13:06:32 by marias-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,18 +75,20 @@ NAME 	=	libft.a
 
 $(O_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I.
+	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I
 
 ${NAME}:	${OBJS}
-		ar rc ${NAME} ${OBJS}
+	@	ar rc ${NAME} ${OBJS}
+	@	echo "\n\033[92m[Libft COMPILED SUCCESSFULY]\033\n[0m"
 
 all:		${NAME}
 
 clean:
-		rm -rf ${O_DIR}
+	@	rm -rf ${O_DIR}
 
 fclean:		clean
-		rm -f ${NAME}
+	@	rm -f ${NAME}
+	@	echo "\n\033[31m[Libft DELETED]\033\n[0m"
 
 re:		fclean all
 
