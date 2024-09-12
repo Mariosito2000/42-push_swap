@@ -46,10 +46,8 @@ char	*ft_itoa(int n)
 static unsigned int	ft_aux_count(unsigned int u)
 {
 	unsigned int	c;
-	unsigned int	p;
 
 	c = 1;
-	p = 10;
 	while (u > 9)
 	{
 		u = u / 10;

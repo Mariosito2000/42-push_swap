@@ -75,7 +75,7 @@ NAME 	=	libft.a
 
 $(O_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I
+	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I.
 
 ${NAME}:	${OBJS}
 	@	ar rc ${NAME} ${OBJS}

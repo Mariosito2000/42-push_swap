@@ -14,17 +14,16 @@
 
 static void	ft_push_aux(t_list **source, t_list **dest)
 {
-	t_list	*aux;
-
 	if (!*dest)
 	{
 		*dest = *source;
 		*source = (*source)->next;
 		(*dest)->next = 0;
+		(*dest)->prev = 0;
+		(*source)->prev = 0;
 	}
 	else
 	{
-		aux = *source;
 		if ((*source)->next)
 		{
 			*source = (*source)->next;

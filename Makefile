@@ -88,11 +88,11 @@ LIBFT	=	$(addprefix $(L_DIR), libft.a)
 
 $(O_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I
+	@$(CC) -c $< -o $(O_DIR)/${<:.c=.o} -I.
 
 $(BO_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@$(CC) -c $< -o $(BO_DIR)/${<:.c=.o} -I
+	@$(CC) -c $< -o $(BO_DIR)/${<:.c=.o} -I.
 
 all:		$(LIBFT) ${NAME}
 
